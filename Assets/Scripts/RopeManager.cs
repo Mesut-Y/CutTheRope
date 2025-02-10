@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Pool;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class RopeManager : MonoBehaviour
 {
     public Rigidbody2D firstHook;
     public BallManager _Ball;
@@ -14,7 +14,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        hingeName = linkPool[1].tag;
+        hingeName = linkPool[1].tag; 
         CreateRope();
     }
 

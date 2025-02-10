@@ -2070,7 +2070,6 @@ MonoBehaviour:
   - {fileID: 1377511110}
   - {fileID: 1374514522}
   - {fileID: 601138644}
-  hingeName: 
 --- !u!50 &697596027
 Rigidbody2D:
   serializedVersion: 5
@@ -2464,6 +2463,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Ball: {fileID: 80810238}
+  centersOfRope:
+  - {fileID: 1183462237}
+  - {fileID: 697596025}
 --- !u!4 &1019652423
 Transform:
   m_ObjectHideFlags: 0
@@ -3241,7 +3243,6 @@ MonoBehaviour:
   - {fileID: 1204935456}
   - {fileID: 1093479636}
   - {fileID: 1181179655}
-  hingeName: 
 --- !u!50 &1183462239
 Rigidbody2D:
   serializedVersion: 5
