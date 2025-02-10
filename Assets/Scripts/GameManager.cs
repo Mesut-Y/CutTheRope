@@ -33,8 +33,17 @@ public class GameManager : MonoBehaviour
                 }
                 else if(hit.collider.CompareTag("Center_2")) //method2
                 {
-                    hit.collider.gameObject.SetActive(false);
-                    _Ball.hingeControl["Center_2"].enabled = false;
+                    hit.collider.gameObject.SetActive(false); //alternative method 3 tıklanan bağlantı deaktif yapılır.
+                    foreach (var item in centersOfRope) //tüm ipin hinge özelliği kapatılır.
+                    {
+                        if (item.GetComponent<RopeManager>().hingeName == "Center_2")
+                        {
+                            foreach (var item2 in item.GetComponent<RopeManager>().linkPool)
+                            {
+                                item2.GetComponent<HingeJoint2D>().enabled = false;
+                            }
+                        }
+                    }
                 }
             }
         }
