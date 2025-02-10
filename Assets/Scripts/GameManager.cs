@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private BallManager _Ball;
     // Update is called once per frame
     void Update()
     {
@@ -13,11 +15,14 @@ public class GameManager : MonoBehaviour
             {
                 if (hit.collider.tag == "Center_1") // method1
                 {
-                    Destroy(hit.collider.gameObject);
+                    //Destroy(hit.collider.gameObject); // alternative method
+                    hit.collider.gameObject.SetActive(false);
+                    _Ball.hingeControl["Center_1"].enabled = false;
                 }
                 else if(hit.collider.CompareTag("Center_2")) //method2
                 {
-                    Destroy(hit.collider.gameObject);
+                    hit.collider.gameObject.SetActive(false);
+                    _Ball.hingeControl["Center_2"].enabled = false;
                 }
             }
         }

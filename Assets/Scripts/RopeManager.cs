@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Pool;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -7,10 +8,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public int linkCounter = 8; //kanca ve top arası bağlantı sayısı
     public GameObject[] linkPool;
 
+    public string hingeName; 
+
     //public GameObject linkPrefab; //The code is used for prototype
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        hingeName = linkPool[1].tag;
         CreateRope();
     }
 
@@ -29,7 +33,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
             }
             else
             {
-                _Ball.TieLastChain(linkPool[i].GetComponent<Rigidbody2D>());
+                _Ball.TieLastChain(linkPool[i].GetComponent<Rigidbody2D>(), hingeName);
             }
         }
 
