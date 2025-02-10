@@ -13,39 +13,36 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.tag == "Center_1") // method1
-                {
-                    //Destroy(hit.collider.gameObject); // alternative method 1 tıklanan bağlantı yok edilir.
-                    //_Ball.hingeControl["Center_1"].enabled = false; //alternative method 2 tıklanan bağlantı hinge özelliği kapatılır.
+                if (hit.collider.tag == "Center_1")
+                    CreateRope(hit, "Center_1");
+                else if(hit.collider.CompareTag("Center_2"))
+                    CreateRope(hit, "Center_2");
+                else if (hit.collider.CompareTag("Center_3"))
+                    CreateRope(hit, "Center_3");
+                else if (hit.collider.CompareTag("Center_4"))
+                    CreateRope(hit, "Center_4");
+            }
+        }
+    }
 
-                    hit.collider.gameObject.SetActive(false); //alternative method 3 tıklanan bağlantı deaktif yapılır.
-                    foreach (var item in centersOfRope) //tüm ipin hinge özelliği kapatılır.
-                    {
-                        if (item.GetComponent<RopeManager>().hingeName == "Center_1")
-                        {
-                            foreach (var item2 in item.GetComponent<RopeManager>().linkPool)
-                            {
-                                item2.GetComponent<HingeJoint2D>().enabled = false;
-                                //item2.SetActive(false); //alternative method
-                            }
-                        }
-                    }
-                }
-                else if(hit.collider.CompareTag("Center_2")) //method2
+    void CreateRope(RaycastHit2D hit, string centerName)
+    {
+        //Destroy(hit.collider.gameObject); // alternative method 1 tıklanan bağlantı yok edilir.
+        //_Ball.hingeControl["Center_1"].enabled = false; //alternative method 2 tıklanan bağlantı hinge özelliği kapatılır.
+
+        hit.collider.gameObject.SetActive(false); //alternative method 3 tıklanan bağlantı deaktif yapılır.
+        foreach (var item in centersOfRope) //tüm ipin hinge özelliği kapatılır.
+        {
+            if (item.GetComponent<RopeManager>().hingeName == centerName)
+            {
+                foreach (var item2 in item.GetComponent<RopeManager>().linkPool)
                 {
-                    hit.collider.gameObject.SetActive(false); //alternative method 3 tıklanan bağlantı deaktif yapılır.
-                    foreach (var item in centersOfRope) //tüm ipin hinge özelliği kapatılır.
-                    {
-                        if (item.GetComponent<RopeManager>().hingeName == "Center_2")
-                        {
-                            foreach (var item2 in item.GetComponent<RopeManager>().linkPool)
-                            {
-                                item2.GetComponent<HingeJoint2D>().enabled = false;
-                            }
-                        }
-                    }
+                    item2.GetComponent<HingeJoint2D>().enabled = false;
+                    //item2.SetActive(false); //alternative method
                 }
             }
         }
     }
 }
+
+

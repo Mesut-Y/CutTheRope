@@ -7,6 +7,9 @@ TagManager:
   - Center_1
   - Center_2
   - Center_3
+  - Center_4
+  - Center_5
+  - Center_6
   layers:
   - Default
   - TransparentFX
