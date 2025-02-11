@@ -12,6 +12,7 @@ TagManager:
   - Center_6
   - TargetObject
   - BallObject
+  - BoxObject
   layers:
   - Default
   - TransparentFX

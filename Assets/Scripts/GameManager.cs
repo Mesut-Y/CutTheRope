@@ -2,13 +2,16 @@
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private BallManager _Ball;
-    [SerializeField] private GameObject[] centersOfRope;
+    [SerializeField] 
+    private BallManager _Ball;
+    [SerializeField] 
+    private GameObject[] centersOfRope;
 
     [SerializeField] 
     private int ballCounter;
     [SerializeField] 
     private int targetObjectCounter;
+
     // Update is called once per frame
     void Update()
     {
@@ -48,7 +51,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     public void TargetFalling()
     {
         targetObjectCounter--;
